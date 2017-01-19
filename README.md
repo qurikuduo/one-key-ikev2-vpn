@@ -57,14 +57,17 @@
 
 8. 将提示信息中的证书文件ca.cert.pem拷贝到客户端，修改后缀名为.cer后导入。ios设备使用Ikev1无需导入证书，而是需要在连接时输入共享密钥，共享密钥即是提示信息中的黄字PSK.
 
-by:咖啡不加糖
-博主，晚上好，最近重建VPN，但发现在 Cenos 7 一键脚本下无法成功，tail -f /var/log/secure 也看不到任何信息，一起以为是VPS被墙了，最后查资料发现Centos 7 已经丢 iptables 而用firewall 防火墙，针对 firewall 输入下列命令，终于看到一些验证log，最后也成功解决问题。
-firewall-cmd --permanent --add-service="ipsec"
-firewall-cmd --permanent --add-port=4500/udp
-firewall-cmd --permanent --add-port=500/udp
-firewall-cmd --permanent --add-masquerade
-firewall-cmd --reload
-如果有朋友有上面一样的问题，不妨尝试一下。另外，如果shadowsocks连不上，还有可能是你的vps服务器没有允许你的shadowsocks的端口，注意，shadowsocks的端口为TCP，一样加入防火墙即可。
+
+> * by:咖啡不加糖
+> * 博主，晚上好，最近重建VPN，但发现在 Cenos 7 一键脚本下无法成功，tail -f /var/log/secure 也看不到任何信息，一起以为是VPS被墙了，最后查资料发现> * Centos 7 已经丢 iptables 而用firewall 防火墙，针对 firewall 输入下列命令，终于看到一些验证log，最后也成功解决问题。
+> * firewall-cmd --permanent --add-service="ipsec"
+> * firewall-cmd --permanent --add-port=4500/udp
+> * firewall-cmd --permanent --add-port=500/udp
+> * firewall-cmd --permanent --add-masquerade
+> * firewall-cmd --reload
+> * 如果有朋友有上面一样的问题，不妨尝试一下。另外，如果shadowsocks连不上，还有可能是你的vps服务器没有允许你的shadowsocks的端口，注意，shadowsocks的端口为TCP，一样加入防火墙即可。
+> * 
+
 客户端配置说明
 =====
 * 连接的服务器地址和证书保持一致,即取决于签发证书ca.cert.pem时使用的是ip还是域名;
